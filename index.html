@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jelajah Bareng Ines | Open Trip & Paket Wisata Nusantara</title>
+<title>Jelajah Bareng Ines | Open Trip &amp; Paket Wisata Nusantara</title>
 <meta name="description" content="Open trip dan paket wisata lokal: Jawa Timur, Yogyakarta, Dieng, hingga Bali. Itinerary jelas, pesan lewat WhatsApp.">
 <link rel="icon" type="image/jpeg" href="logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,6 +28,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.14;letter-spacin
 .btn:hover{background:transparent;color:var(--gold-l)}
 .btn.ghost{background:transparent;color:var(--ivory);border-color:var(--line)}
 .btn.ghost:hover{border-color:var(--gold);color:var(--gold-l)}
+.ico-ig{width:16px;height:16px;vertical-align:-3px;margin-right:10px}
 
 /* nav */
 .nav{position:sticky;top:0;z-index:10;background:rgba(7,18,15,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
@@ -40,6 +41,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.14;letter-spacin
 .foot-logo{width:84px;height:84px;border-radius:50%;display:block;margin:0 auto 28px}
 .nav a.link{color:var(--muted);text-decoration:none;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;transition:color .3s}
 .nav a.link:hover{color:var(--gold-l)}
+.nav a.ig-nav{display:inline-flex;align-items:center}
+.nav a.ig-nav .ico-ig{width:20px;height:20px;margin:0;vertical-align:0}
 .links{display:flex;align-items:center;gap:34px}
 .nav a.cta{padding:9px 20px;border:1px solid var(--gold);color:var(--gold-l);transition:background .3s,color .3s}
 .nav a.cta:hover{background:var(--gold);color:#14180f}
@@ -134,6 +137,10 @@ section{padding:110px 0}
 .contact h2 em{font-style:italic;color:var(--gold-l)}
 .contact p.t{max-width:46ch;margin:0 auto 44px;color:var(--muted)}
 .contact .btn{padding:20px 46px;font-size:.85rem}
+.contact .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.contact p.handle{margin-top:28px;font-size:.88rem;color:var(--muted)}
+.contact p.handle a{color:var(--gold-l);text-decoration:none;border-bottom:1px solid var(--line);transition:border-color .3s}
+.contact p.handle a:hover{border-color:var(--gold)}
 .contact small{display:block;margin-top:100px;color:#5d6e64;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase}
 
 @media (max-width:860px){
@@ -170,6 +177,9 @@ section{padding:110px 0}
 .facts-o div{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--line);font-size:.9rem}
 .facts-o span{color:var(--muted);letter-spacing:.2em;text-transform:uppercase;font-size:.72rem;align-self:center}
 .facts-o b{font-weight:500;color:var(--ivory);text-align:right}
+.facts-o a.ig-link{color:var(--gold-l);text-decoration:none;border-bottom:1px solid var(--line);transition:border-color .3s}
+.facts-o a.ig-link:hover{border-color:var(--gold)}
+.btns-o{display:flex;gap:14px;flex-wrap:wrap}
 .edu{display:flex;align-items:center;gap:18px;max-width:460px;margin:0 0 22px;padding:18px 22px;background:var(--surface);border:1px solid var(--line)}
 .edu .ico{width:50px;height:50px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;flex:none}
 .edu b{display:block;font:500 1.05rem/1.3 var(--serif);color:var(--ivory)}
@@ -193,6 +203,66 @@ section{padding:110px 0}
 }
 @media (max-width:480px){.logo span{display:none}.logo img{width:40px;height:40px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+
+/* ===== ANIMASI ===== */
+:root{--ease:cubic-bezier(.2,.7,.2,1)}
+@keyframes rise{from{opacity:0;translate:0 34px}to{opacity:1;translate:0 0}}
+@keyframes soft{from{opacity:0;translate:0 10px}to{opacity:1;translate:0 0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 1px var(--line),0 18px 60px rgba(0,0,0,.5),0 0 0 0 rgba(205,185,138,.35)}
+  100%{box-shadow:0 0 0 1px var(--line),0 18px 60px rgba(0,0,0,.5),0 0 0 32px rgba(205,185,138,0)}}
+@keyframes glow{
+  0%,100%{transform:translateX(-50%) scale(1);opacity:.75}
+  50%{transform:translateX(-50%) scale(1.14);opacity:1}}
+@keyframes shine{from{background-position:0% center}to{background-position:100% center}}
+@keyframes frame{from{inset:0;opacity:0}to{inset:20px -20px -20px 20px;opacity:1}}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.07)}}
+
+/* hero: muncul berurutan */
+.hero .wrap>*{animation:rise 1s var(--ease) both}
+.hero .wrap>*:nth-child(2){animation-delay:.15s}
+.hero .wrap>*:nth-child(3){animation-delay:.3s}
+.hero .wrap>*:nth-child(4){animation-delay:.45s}
+.hero .wrap>*:nth-child(5){animation-delay:.6s}
+.hero .wrap>*:nth-child(6){animation-delay:.8s}
+.hero .wrap>.hero-logo{animation:rise 1s var(--ease) both,float 7s ease-in-out 1.2s infinite,pulse 4s ease-out 1.2s infinite}
+.hero::before{animation:glow 9s ease-in-out infinite}
+
+/* kata miring berkilau pelan */
+.hero h1 em,.sh h2 em,.owner h2 em,.contact h2 em{
+  background:linear-gradient(100deg,#c9b27a 15%,#fff3d1 50%,#c9b27a 85%);background-size:220% auto;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  animation:shine 6s ease-in-out infinite alternate;padding-right:.04em}
+
+/* muncul saat di-scroll */
+.reveal{opacity:0}
+.reveal.in{animation:rise .9s var(--ease) both;animation-delay:var(--d,0ms)}
+.ph-wrap.reveal.in::before{animation:frame 1.3s var(--ease) .35s both}
+.ph-wrap.in .ph img{animation:kb 16s ease-in-out infinite alternate}
+.det[open]>*:not(summary){animation:soft .5s var(--ease) both}
+
+/* tombol berkilau saat di-hover */
+.btn{position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;top:0;bottom:0;left:-80%;width:50%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-20deg);transition:left .8s var(--ease)}
+.btn:hover::after{left:130%}
+
+/* navbar mengecil saat scroll + garis progres */
+.nav{transition:box-shadow .35s}
+.nav .wrap{transition:padding .35s var(--ease)}
+.logo img{transition:width .35s var(--ease),height .35s var(--ease)}
+.nav.scrolled{box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.nav.scrolled .wrap{padding-top:10px;padding-bottom:10px}
+.nav.scrolled .logo img{width:34px;height:34px}
+#bar{position:fixed;top:0;left:0;right:0;height:2px;z-index:30;pointer-events:none;transform-origin:0 50%;transform:scaleX(0);
+  background:linear-gradient(90deg,var(--gold),var(--gold-l))}
+
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1}
+  *,*::before,*::after{animation:none!important}
+  #bar{display:none}
+}
 </style>
 </head>
 <body>
@@ -204,6 +274,7 @@ section{padding:110px 0}
       <a class="link" href="#katalog">Katalog</a>
       <a class="link" href="#tentang">Profil</a>
       <a class="link hide-m" href="#cara">Cara Pesan</a>
+      <a class="link ig-nav" href="https://www.instagram.com/jelajahbareng.id/" target="_blank" rel="noopener" aria-label="Instagram @jelajahbareng.id"><svg class="ico-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
       <a class="link cta hide-m" href="#kontak">Hubungi</a>
     </nav>
   </div>
@@ -219,9 +290,10 @@ section{padding:110px 0}
     <div class="btns">
       <a class="btn" href="#katalog">Lihat Katalog</a>
       <a class="btn ghost" href="https://wa.me/6285973611464?text=Halo%20Kak%2C%20saya%20ingin%20tanya%20open%20trip." target="_blank" rel="noopener">Tanya via WhatsApp</a>
+      <a class="btn ghost" href="https://ig.me/m/jelajahbareng.id" target="_blank" rel="noopener"><svg class="ico-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>DM Instagram</a>
     </div>
     <div class="facts">
-      <div><b>8</b><span>Destinasi</span></div>
+      <div><b>10</b><span>Destinasi</span></div>
       <div><b>Rp150rb</b><span>Harga Mulai Dari</span></div>
       <div><b>WhatsApp</b><span>Cara Daftar</span></div>
     </div>
@@ -235,7 +307,7 @@ section{padding:110px 0}
     <div class="grp"><h3>Jawa Timur</h3></div>
     <div class="cat">
       <!-- GANTI nama trip, durasi, harga, itinerary, dan isi "termasuk" sesuai rencanamu.
-           Foto: simpan di folder yang sama, nama file: sarangan, pacitan, bromo, batu, ijen, jogja, dieng, bali (format .jpg atau .jpeg, samakan dengan nama file di src) -->
+           Foto: simpan di folder yang sama, nama file harus sama persis dengan yang tertulis di src (jpg atau jpeg) -->
       <article class="card">
         <div class="thumb g1"><img src="sarangan.jpg" alt="Telaga Sarangan" onerror="this.remove()"><span class="dur">1 Hari</span></div>
         <div class="body">
@@ -314,6 +386,40 @@ section{padding:110px 0}
           </details>
           <div class="foot"><div class="price">Rp750.000 <small>/ orang</small></div>
           <a class="btn" href="https://wa.me/6285973611464?text=Halo%20Kak%2C%20saya%20ingin%20daftar%20trip%20Kawah%20Ijen%2C%20Banyuwangi." target="_blank" rel="noopener">Daftar</a></div>
+        </div>
+      </article>
+      <!-- HARGA & DURASI PERKIRAAN: sesuaikan -->
+      <article class="card">
+        <div class="thumb g4"><img src="tumpaksewu.jpeg" alt="Air Terjun Tumpak Sewu" onerror="this.remove()"><span class="dur">2 Hari 1 Malam</span></div>
+        <div class="body">
+          <h3>Air Terjun Tumpak Sewu</h3>
+          <p>Air terjun bertingkat yang megah di Lumajang, cocok untuk pencinta pemandangan alam.</p>
+          <ul><li>Transportasi pulang-pergi</li><li>Penginapan 1 malam</li><li>Tiket masuk</li></ul>
+          <details class="det"><summary>Detail trip</summary>
+            <h4>Itinerary</h4><ol><li>Hari 1: berangkat, tiba di area Lumajang, lalu check-in penginapan dan beristirahat.</li><li>Hari 2: menikmati Air Terjun Tumpak Sewu, sarapan, lalu perjalanan pulang.</li></ol>
+            <h4>Termasuk</h4><ul><li>Transportasi pulang-pergi</li><li>Penginapan 1 malam</li><li>Tiket masuk destinasi</li></ul>
+            <h4>Tidak termasuk</h4><ul><li>Makan di luar yang disebutkan</li><li>Pengeluaran pribadi</li><li>Tiket wahana atau aktivitas tambahan</li></ul>
+            <h4>Catatan</h4><p>Titik kumpul dan jam berangkat diinfokan setelah pendaftaran dikonfirmasi. Itinerary dapat menyesuaikan cuaca dan kondisi lokasi.</p>
+          </details>
+          <div class="foot"><div class="price">Rp450.000 <small>/ orang</small></div>
+          <a class="btn" href="https://wa.me/6285973611464?text=Halo%20Kak%2C%20saya%20ingin%20daftar%20trip%20Air%20Terjun%20Tumpak%20Sewu." target="_blank" rel="noopener">Daftar</a></div>
+        </div>
+      </article>
+      <!-- HARGA PERKIRAAN: sesuaikan -->
+      <article class="card">
+        <div class="thumb g5"><img src="madakaripura.jpeg" alt="Air Terjun Madakaripura" onerror="this.remove()"><span class="dur">2 Hari 1 Malam</span></div>
+        <div class="body">
+          <h3>Air Terjun Madakaripura, Probolinggo</h3>
+          <p>Air terjun tersembunyi di dalam ngarai yang dikelilingi tebing hijau, salah satu yang paling banyak dikunjungi di Jawa Timur.</p>
+          <ul><li>Transportasi pulang-pergi</li><li>Penginapan 1 malam</li><li>Tiket masuk</li></ul>
+          <details class="det"><summary>Detail trip</summary>
+            <h4>Itinerary</h4><ol><li>Hari 1: berangkat, tiba di Probolinggo, lalu check-in penginapan dan beristirahat.</li><li>Hari 2: menyusuri jalur menuju Air Terjun Madakaripura, sarapan, lalu perjalanan pulang.</li></ol>
+            <h4>Termasuk</h4><ul><li>Transportasi pulang-pergi</li><li>Penginapan 1 malam</li><li>Tiket masuk destinasi</li></ul>
+            <h4>Tidak termasuk</h4><ul><li>Makan di luar yang disebutkan</li><li>Pengeluaran pribadi</li><li>Tiket wahana atau aktivitas tambahan</li></ul>
+            <h4>Catatan</h4><p>Titik kumpul dan jam berangkat diinfokan setelah pendaftaran dikonfirmasi. Itinerary dapat menyesuaikan cuaca dan kondisi lokasi.</p>
+          </details>
+          <div class="foot"><div class="price">Rp450.000 <small>/ orang</small></div>
+          <a class="btn" href="https://wa.me/6285973611464?text=Halo%20Kak%2C%20saya%20ingin%20daftar%20trip%20Air%20Terjun%20Madakaripura%2C%20Probolinggo." target="_blank" rel="noopener">Daftar</a></div>
         </div>
       </article>
     </div>
@@ -409,8 +515,12 @@ section{padding:110px 0}
           <div><span>Nama</span><b>Ines Farah Sebian</b></div>
           <div><span>Peran</span><b>Pendiri &amp; penyusun trip</b></div>
           <div><span>Hobi</span><b>Traveling</b></div>
+          <div><span>Instagram</span><b><a class="ig-link" href="https://www.instagram.com/inesfarahh/" target="_blank" rel="noopener">@inesfarahh</a></b></div>
         </div>
-        <a class="btn" href="https://wa.me/6285973611464?text=Halo%20Kak%20Ines%2C%20saya%20ingin%20tanya%20open%20trip." target="_blank" rel="noopener">Ngobrol dengan Ines</a>
+        <div class="btns-o">
+          <a class="btn" href="https://wa.me/6285973611464?text=Halo%20Kak%20Ines%2C%20saya%20ingin%20tanya%20open%20trip." target="_blank" rel="noopener">Ngobrol dengan Ines</a>
+          <a class="btn ghost" href="https://www.instagram.com/inesfarahh/" target="_blank" rel="noopener"><svg class="ico-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>IG Pribadi Ines</a>
+        </div>
       </div>
     </div>
 
@@ -463,11 +573,73 @@ section{padding:110px 0}
     <img class="foot-logo" src="logo.jpg" alt="Logo Jelajah Bareng Ines">
     <span class="eyebrow">Siap Berangkat?</span>
     <h2>Mari <em>jalan bareng</em></h2>
-    <p class="t">Punya pertanyaan, atau ingin request destinasi dan tanggal sendiri? Kirim pesan langsung ke WhatsApp.</p>
-    <a class="btn" href="https://wa.me/6285973611464?text=Halo%20Kak%2C%20saya%20ingin%20tanya%20open%20trip." target="_blank" rel="noopener">Hubungi via WhatsApp</a>
+    <p class="t">Punya pertanyaan, atau ingin request destinasi dan tanggal sendiri? Kirim pesan langsung ke WhatsApp atau DM Instagram kami.</p>
+    <div class="btns">
+      <a class="btn" href="https://wa.me/6285973611464?text=Halo%20Kak%2C%20saya%20ingin%20tanya%20open%20trip." target="_blank" rel="noopener">Hubungi via WhatsApp</a>
+      <a class="btn ghost" href="https://ig.me/m/jelajahbareng.id" target="_blank" rel="noopener"><svg class="ico-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>DM Instagram</a>
+    </div>
+    <p class="handle">Ikuti kami di <a href="https://www.instagram.com/jelajahbareng.id/" target="_blank" rel="noopener">@jelajahbareng.id</a></p>
     <small>&copy; 2026 Jelajah Bareng Ines</small>
   </div>
 </footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav = document.querySelector('.nav');
+  var bar = document.createElement('div');
+  bar.id = 'bar';
+  document.body.appendChild(bar);
+
+  // garis progres + navbar mengecil
+  var busy = false;
+  function onScroll() {
+    if (busy) return;
+    busy = true;
+    requestAnimationFrame(function () {
+      var h = document.documentElement;
+      var p = h.scrollTop / ((h.scrollHeight - h.clientHeight) || 1);
+      bar.style.transform = 'scaleX(' + p + ')';
+      if (nav) nav.classList.toggle('scrolled', h.scrollTop > 40);
+      busy = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  if (reduce || !('IntersectionObserver' in window)) return;
+
+  // muncul berurutan saat di-scroll
+  var sel = '.sh,.grp,.card,.perk,.step,.owner .ph-wrap,.owner>div:last-child>*,.chips span,.proj,.note,.contact .wrap>*';
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll(sel).forEach(function (el) {
+    var i = Array.prototype.indexOf.call(el.parentNode.children, el);
+    el.style.setProperty('--d', (Math.min(i, 5) * 90) + 'ms');
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+
+  // angka "8" menghitung naik
+  document.querySelectorAll('.facts b').forEach(function (b) {
+    var n = parseInt(b.textContent, 10);
+    if (String(n) !== b.textContent.trim()) return;
+    b.textContent = '0';
+    setTimeout(function () {
+      var t0 = null;
+      (function tick(t) {
+        if (t0 === null) t0 = t;
+        var k = Math.min((t - t0) / 1400, 1);
+        b.textContent = Math.round(n * (1 - Math.pow(1 - k, 3)));
+        if (k < 1) requestAnimationFrame(tick);
+      })(performance.now());
+    }, 900);
+  });
+})();
+</script>
 
 </body>
 </html>
